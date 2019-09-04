@@ -1,0 +1,9 @@
+{
+    "auth": {
+        "pass": "qoPAeUeVnJxxzHJVCcXm",
+        "user": "info@wemusyncbeta.de"
+    },
+    "host": "smtp.strato.de",
+    "port": 465,
+    "secure": true
+}
