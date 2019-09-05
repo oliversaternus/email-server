@@ -32,8 +32,8 @@ export class Templates {
     }
 
     private initialize = () => {
-        this.list = {};
         const files = fs.readdirSync(path.join(__dirname, "../", "../", "/templates"));
+        this.list = {};
         files.forEach((fileName) => {
             this.openTemplate(fileName);
         });
