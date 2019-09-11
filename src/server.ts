@@ -21,6 +21,6 @@ app.use((err: any, req: any, res: any, next: any) => {
 });
 
 const server = createServer(app);
-server.listen(5352, () => {
-    console.log(`server started at http://localhost:5352`);
+server.listen(8787, () => {
+    console.log(`server started at http://localhost:8787`);
 });
