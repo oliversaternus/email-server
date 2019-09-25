@@ -1,12 +1,20 @@
 import fs from "fs";
 import handlebars from "handlebars";
 import nodemailer from "nodemailer";
+import Mail from "nodemailer/lib/mailer";
 import path from "path";
+import Config from "./config";
 
-const config: any = JSON.parse(fs.readFileSync(path.join(__dirname, "../", "../", "/config.json"), "utf-8"));
-
-const mailTransporter = nodemailer.createTransport({
-    ...config
+let mailTransporter: Mail;
+export const config = new Config("emailServer", (email) => {
+    mailTransporter = nodemailer.createTransport({
+        auth: {
+            pass: email.password,
+            user: email.address
+        },
+        host: email.host,
+        port: email.port
+    });
 });
 
 export async function sendMail(recipient: string, htmlContent: string, subject: string) {
