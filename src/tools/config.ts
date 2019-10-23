@@ -32,7 +32,7 @@ export default class Config {
             this.onInit = onInit;
         }
         this.initialize();
-        fs.watchFile(path.join(__dirname, "../", "../", "/config.json"), this.initialize);
+        // fs.watchFile(path.join(__dirname, "../", "../", "/config.json"), this.initialize);
     }
 
     public initialize = () => {

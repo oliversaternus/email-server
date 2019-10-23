@@ -40,7 +40,7 @@ class Config {
             this.onInit = onInit;
         }
         this.initialize();
-        fs_1.default.watchFile(path_1.default.join(__dirname, "../", "../", "/config.json"), this.initialize);
+        // fs.watchFile(path.join(__dirname, "../", "../", "/config.json"), this.initialize);
     }
 }
 exports.default = Config;
