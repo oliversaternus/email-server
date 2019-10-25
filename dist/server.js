@@ -25,11 +25,20 @@ const utils = __importStar(require("./tools/utils"));
 const app = express_1.default();
 app.use(body_parser_1.default.json());
 const templates = new utils.Templates();
+console.log(templates.list);
 app.post("/send", (req, res) => __awaiter(this, void 0, void 0, function* () {
-    const { template, content, recipient, subject } = req.body;
-    const mail = templates.list[template](content);
-    yield utils.sendMail(recipient, mail, subject);
-    res.sendStatus(200);
+    try {
+        const { template, content, recipient, subject } = req.body;
+        console.log(req.body);
+        console.log(templates.list);
+        const mail = templates.list[template](content);
+        yield utils.sendMail(recipient, mail, subject);
+        res.sendStatus(200);
+    }
+    catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
 }));
 app.use((err, req, res, next) => {
     res.status(Number(err.message) || 500);

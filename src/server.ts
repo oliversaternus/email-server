@@ -8,11 +8,20 @@ app.use(bodyParser.json());
 
 const templates = new utils.Templates();
 
+console.log(templates.list);
+
 app.post("/send", async (req, res) => {
-    const { template, content, recipient, subject } = req.body;
-    const mail = templates.list[template](content);
-    await utils.sendMail(recipient, mail, subject);
-    res.sendStatus(200);
+    try {
+        const { template, content, recipient, subject } = req.body;
+        console.log(req.body);
+        console.log(templates.list);
+        const mail = templates.list[template](content);
+        await utils.sendMail(recipient, mail, subject);
+        res.sendStatus(200);
+    } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
 });
 
 app.use((err: any, req: any, res: any, next: any) => {
