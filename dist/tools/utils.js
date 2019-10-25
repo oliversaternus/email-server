@@ -21,7 +21,7 @@ exports.config = new config_1.default("emailServer", (email) => {
     mailTransporter = nodemailer_1.default.createTransport({
         auth: {
             pass: email.password,
-            user: email.address
+            user: email.adress
         },
         host: email.host,
         port: email.port

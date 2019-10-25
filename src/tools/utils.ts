@@ -10,7 +10,7 @@ export const config = new Config("emailServer", (email) => {
     mailTransporter = nodemailer.createTransport({
         auth: {
             pass: email.password,
-            user: email.address
+            user: email.adress
         },
         host: email.host,
         port: email.port

@@ -7,7 +7,7 @@ type ServerTitle = "emailServer" | "apiServer" | "websocketServer" |
 interface Email {
     host: string;
     port: number;
-    address: string;
+    adress: string;
     password: string;
 }
 
