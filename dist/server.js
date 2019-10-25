@@ -29,11 +29,9 @@ console.log(templates.list);
 app.post("/send", (req, res) => __awaiter(this, void 0, void 0, function* () {
     try {
         const { template, content, recipient, subject } = req.body;
-        console.log(req.body);
-        console.log(templates.list);
         const mail = templates.list[template](content);
-        yield utils.sendMail(recipient, mail, subject);
-        res.sendStatus(200);
+        const success = yield utils.sendMail(recipient, mail, subject);
+        res.sendStatus(success ? 200 : 500);
     }
     catch (e) {
         console.log(e);

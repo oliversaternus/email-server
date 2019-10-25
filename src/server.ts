@@ -13,11 +13,9 @@ console.log(templates.list);
 app.post("/send", async (req, res) => {
     try {
         const { template, content, recipient, subject } = req.body;
-        console.log(req.body);
-        console.log(templates.list);
         const mail = templates.list[template](content);
-        await utils.sendMail(recipient, mail, subject);
-        res.sendStatus(200);
+        const success = await utils.sendMail(recipient, mail, subject);
+        res.sendStatus(success ? 200 : 500);
     } catch (e) {
         console.log(e);
         res.sendStatus(500);

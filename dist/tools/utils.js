@@ -39,6 +39,7 @@ function sendMail(recipient, htmlContent, subject) {
             return true;
         }
         catch (e) {
+            console.log(e);
             return false;
         }
     });
