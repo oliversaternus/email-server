@@ -38,7 +38,7 @@ export default class Config {
     public initialize = () => {
         try {
             const config: any = JSON.parse(fs.readFileSync(
-                path.join(__dirname, "../", "../", "/config.json"), "utf-8"));
+                path.join(__dirname, "../", "../", "../", "/config.json"), "utf-8"));
             this.addresses = config.addresses;
             this.secret = config.secret;
             this.encryptionKey = config.encryptionKey;
