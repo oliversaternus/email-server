@@ -10,7 +10,7 @@ class Config {
         this.addresses = {};
         this.initialize = () => {
             try {
-                const config = JSON.parse(fs_1.default.readFileSync(path_1.default.join(__dirname, "../", "../", "/config.json"), "utf-8"));
+                const config = JSON.parse(fs_1.default.readFileSync(path_1.default.join(__dirname, "../", "../", "../", "/config.json"), "utf-8"));
                 this.addresses = config.addresses;
                 this.secret = config.secret;
                 this.encryptionKey = config.encryptionKey;
